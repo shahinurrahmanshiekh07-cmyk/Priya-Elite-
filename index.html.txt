@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Wifey Priya 🖤</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: black;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+.container {
+  padding: 20px;
+}
+
+img {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 1.2em;
+  margin: 15px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: black;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #ddd;
+}
+
+.hidden {
+  display: none;
+  margin-top: 20px;
+}
+
+.meme {
+  font-size: 1.3em;
+  margin: 15px;
+}
+
+#typing {
+  font-size: 1.4em;
+  margin-top: 20px;
+  min-height: 50px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Hey Wifey Priya 🖤</h1>
+
+<img src="yourphoto.jpg" alt="Us Together">
+
+<p>I know you're upset… and I hate it 💔</p>
+
+<button onclick="startLove()">Tap here please 🥺</button>
+
+<div id="loveMessage" class="hidden">
+
+<div id="typing"></div>
+
+<div class="meme">👉 When you're angry: 😡<br>Me: "Sorry Wifey pls don't be mad" 🥺</div>
+
+<div class="meme">👉 You ignoring me:<br>Me refreshing chat every 2 seconds 😭📱</div>
+
+<div class="meme">👉 You = Queen 👑<br>Me = Always guilty 😔😂</div>
+
+<button onclick="forgive()">Will you forgive me? 🥺❤️</button>
+
+<p id="finalMsg" class="hidden">Yayyy 🥺❤️ I love you so much Wifey 🖤</p>
+
+</div>
+
+</div>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+  <source src="tumhiho.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// typing effect
+const text = "I'm really sorry, Wifey... You are my everything 🖤 I promise I'll do better. I love you ❤️";
+let i = 0;
+
+function typeEffect() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 40);
+  }
+}
+
+function startLove() {
+  document.getElementById("loveMessage").style.display = "block";
+  document.getElementById("bgMusic").play();
+  typeEffect();
+  createHearts();
+}
+
+function forgive() {
+  document.getElementById("finalMsg").style.display = "block";
+}
+
+// floating hearts
+function createHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 6000);
+  }, 300);
+}
+</script>
+
+</body>
+</html>
